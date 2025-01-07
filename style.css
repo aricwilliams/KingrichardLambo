@@ -1,0 +1,567 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Cormorant Upright', serif;
+  background-color: black;
+}
+
+/* Header Section */
+/* Default Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent; /* Default is transparent */
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+/* Header Styles When Scrolled */
+.header.scrolled {
+  background: black; /* Change to black on scroll */
+  border-bottom: 1px solid red; /* Add red border */
+}
+
+
+.logo img {
+  height: 50px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: black;
+  background: rgba(204, 226, 8, 0.8);
+
+}
+.menu a.active {
+  color: white; /* Make it red to highlight the active page */
+  text-decoration: underline red; /* Add underline */
+  text-underline-offset: 10px;
+}
+
+.call-button {
+  font-family: "Jost", sans-serif;
+  font-size: 14px;
+  color: white;
+  background: red;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.call-button:hover {
+  background: white;
+  color: red;
+}
+
+/* Video Container */
+.video-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  object-fit: cover;
+}
+
+/* Updated Overlay Gradient for Hero Section */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3), black);
+  z-index: 1;
+}
+
+/* Hero Content */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+}
+
+.hero-title {
+  font-family: "Jost", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-family: "Cormorant Upright", serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  margin: 5px 0;
+}
+
+.hero-button {
+  font-family: "Cormorant Upright", serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  text-decoration: none;
+  background: rgba(173, 5, 5, 1);
+  padding: 10px 20px;
+  border: 1px solid rgb(179, 13, 13);
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.hero-button:hover {
+  background: rgba(204, 226, 8, 0.8);
+  color: black;
+}
+
+
+
+
+
+
+
+
+/* Two Sections: Text on Left with Gradient and Image on Right */
+.text-image-section {
+  display: flex;
+  flex-wrap: nowrap; /* Keeps content side by side */
+  align-items: center;
+  justify-content: space-between;
+  min-height: 500px; /* Adjust as needed */
+  position: relative;
+  background: black; /* Black background for the entire section */
+  padding-top: 100px;
+  
+}
+
+/* Text Content on the Left */
+.text-image-section .content {
+  flex: 0 0 40%; /* Text takes 40% of the width */
+  padding: 40px;
+  color: white;
+  position: relative;
+  background: linear-gradient(
+      to right, black 80%, transparent 100%
+    ), /* Smooth transition to the right */
+    linear-gradient(
+      to bottom, black 20%, transparent 100%
+    ); /* Smooth transition to the bottom */
+  z-index: 2;
+}
+
+.text-image-section h2 {
+  font-family: "Jost", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.text-image-section p {
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Image Section on the Right */
+.text-image-section .image-section {
+  flex: 0 0 60%; /* Image takes 60% of the width */
+  min-height: 500px; /* Matches the height of the text section */
+  background: linear-gradient(
+      to left, transparent 0%, black 102%
+    ), /* Gradient from right to left */
+    linear-gradient(
+      to bottom, black 1%, transparent 20%
+    ), /* Smooth transition to the bottom */
+    url('https://thumbs.dreamstime.com/b/black-lamborghini-under-night-lights-sleek-sports-car-captured-glow-streetlights-its-headlights-illuminating-wet-342607657.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .text-image-section {
+    flex-wrap: wrap; /* Stack sections vertically */
+  }
+
+  .text-image-section .content,
+  .text-image-section .image-section {
+    flex: 1 1 100%; /* Full width */
+    min-height: 300px; /* Adjust height as needed for smaller screens */
+  }
+
+  .text-image-section .content {
+    text-align: center;
+    background: linear-gradient(to bottom, black 75%, transparent 100%);
+  }
+
+  .text-image-section .image-section {
+    background-position: center;
+    background-size: cover;
+    background: linear-gradient(to top, black 20%, transparent 60%), 
+                url('https://thumbs.dreamstime.com/b/black-lamborghini-under-night-lights-sleek-sports-car-captured-glow-streetlights-its-headlights-illuminating-wet-342607657.jpg') no-repeat center center;
+  }
+}
+
+
+
+
+
+
+
+/* Centered Section with Top Gradient */
+.centered-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9)), black; /* Top gradient with transparency */
+  color: white; /* Text color */
+  position: relative;
+}
+
+.centered-section .content {
+  max-width: 800px; /* Limit text width for better readability */
+  z-index: 1; /* Ensure content appears above the gradient */
+}
+
+.centered-section h2 {
+  font-family: "Jost", sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.centered-section h3 {
+  font-family: "Jost", sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.centered-section p {
+  font-family: "Jost", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Optional: Add a pseudo-element for the gradient to flow seamlessly */
+.centered-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* Adjust for desired gradient height */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent); /* Smooth gradient fade */
+  z-index: 0; /* Places the gradient below the content */
+}
+
+
+
+
+
+
+
+
+/* Section with Background Image */
+.background-image-section {
+  position: relative;
+  background: url('https://images.squarespace-cdn.com/content/v1/5a9eca77af2096c00f9bb77e/1528215593632-QKTCGSZYFLJGYG70YJZC/Lamborghini+Huracan+-+Griot%27s+Garage+-+Car+Wash+-+Car+Detail+-+Wichita+Clear+Bra-113.jpg') no-repeat center center;
+  background-size: cover;
+  color: rgb(0, 0, 0);
+  padding: 50px 20px;
+  text-align: center;
+  overflow: hidden; /* Ensures no overflow */
+}
+
+/* Top Gradient for Blending */
+.background-image-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px; /* Adjust height for smoother blend */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), transparent); /* Smooth top gradient */
+  z-index: 1;
+}
+
+/* Wrapper for Inner Content */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between; /* Space between the two image boxes */
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  position: relative;
+  z-index: 2; /* Content sits above gradient */
+}
+
+/* Image Box */
+.image-box {
+  flex: 0 0 48%; /* Two images side by side, with some gap */
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for hover */
+}
+
+.image-box img {
+  width: 320px; /* Ensure images are responsive */
+  margin-bottom: 15px; /* Space below the image */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling animation */
+}
+
+/* Hover Effect */
+.image-box:hover {
+  transform: scale(1.05); /* Slightly grow the entire image box */
+}
+
+.image-box:hover img {
+  transform: scale(1.1); /* Scale the image slightly more than the box */
+}
+
+
+
+.image-box h3 {
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.image-box p {
+  font-family: "Jost", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-wrap: wrap; /* Stack image boxes vertically on smaller screens */
+    gap: 20px; /* Add spacing between stacked image boxes */
+  }
+
+  .image-box {
+    flex: 1 1 100%; /* Full width for each image box */
+  }
+
+  .image-box img {
+    max-height: 150px; /* Reduce image height for smaller screens */
+  }
+
+  .image-box h3 {
+    font-size: 18px;
+  }
+
+  .image-box p {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Section with Background Image */
+.interactive-section {
+  position: relative;
+  background: url('/img/packages.png') no-repeat center center;
+  background-size: cover;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* Text Content */
+.text-content h2,
+.text-content h3 {
+  font-family: "Jost", sans-serif;
+  margin-bottom: 20px;
+}
+
+.text-content h2 {
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.text-content h3 {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+/* Menu Bar */
+.menu-bar {
+  display: flex;
+  justify-content: space-between; /* Distribute menu options evenly */
+  background-color: black; /* Black background for the bar */
+  padding: 0px 0; /* Padding for spacing */
+  border: 1px solid rgba(255, 255, 255, 0.74); /* White border around the bar */
+  max-width: 800px; /* Constrain the width of the menu bar */
+  margin: 20px auto;
+}
+
+.menu-option {
+  flex: 1; /* Each menu option takes equal space */
+  text-align: center; /* Center text within each option */
+  font-family: "Jost", sans-serif;
+  background-color: black; /* Matches the menu bar background */
+  color: white; /* White text */
+  padding: 7px 0; /* Padding for spacing */
+  cursor: pointer;
+  border-left: 1px solid rgba(255, 255, 255, 0.685); /* Add white borders between menu options */
+  border-right: 1px solid rgba(255, 255, 255, 0.616); /* Add white borders between menu options */
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-option:first-child {
+  border-left: none; /* Remove the left border for the first option */
+}
+
+.menu-option:last-child {
+  border-right: none; /* Remove the right border for the last option */
+}
+
+
+.menu-option:active {
+  background-color: red;
+  color: white;
+}
+
+
+/* Image Display */
+.image-display {
+  margin-top: 20px;
+  display: flex; /* Use Flexbox for side-by-side layout */
+  flex-wrap: wrap; /* Allows images to wrap if there are too many to fit in one row */
+  justify-content: center; /* Center-align images in the container */
+  gap: 20px; /* Space between the images */
+}
+
+.image-display img {
+  width: 200px; /* Fixed width for each image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow for better visual effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .text-content h2 {
+    font-size: 28px;
+  }
+
+  .text-content h3 {
+    font-size: 18px;
+  }
+
+  .menu-option {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+
+
+
+
+
+
+/* Footer Section */
+.footer-section {
+  height: 50px; /* Fixed height for the footer */
+  background-color: black; /* Black background */
+  color: white; /* White text */
+  display: flex; /* Create columns using Flexbox */
+  justify-content: space-between; /* Space out columns evenly */
+  align-items: center; /* Vertically center the content */
+  padding: 0 20px; /* Add horizontal padding */
+  font-family: "Jost", sans-serif;
+  margin-top: 40px;
+}
+
+/* Columns */
+.footer-column {
+  flex: 1; /* Each column takes equal space */
+}
+
+.footer-column.start {
+  text-align: left; /* Align text to the left */
+}
+
+.footer-column.center {
+  text-align: center; /* Align text to the center */
+}
+
+.footer-column.end {
+  text-align: right; /* Align text to the right */
+}
+
+/* Typography */
+.footer-section h3 {
+  font-size: 10px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.footer-section p {
+  font-size: 14px;
+  margin: 0;
+}
