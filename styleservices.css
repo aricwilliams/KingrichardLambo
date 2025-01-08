@@ -1,0 +1,683 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: 'Cormorant Upright', serif;
+    background-color: black;
+  }
+  
+  /* Header Section */
+  /* Default Header Styles */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent; /* Default is transparent */
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+  
+  /* Header Styles When Scrolled */
+  .header.scrolled {
+    background: black; /* Change to black on scroll */
+    border-bottom: 1px solid red; /* Add red border */
+  }
+  
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .menu a {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: black;
+    background: rgba(204, 226, 8, 0.8);
+  
+  }
+  .menu a.active {
+    color: white; /* Make it red to highlight the active page */
+    text-decoration: underline red; /* Add underline */
+    text-underline-offset: 10px;
+  }
+  
+  .call-button {
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    color: white;
+    background: red;
+    padding: 8px 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .call-button:hover {
+    background: white;
+    color: red;
+  }
+  
+  /* Video Container */
+  .video-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    object-fit: cover;
+  }
+  
+  /* Updated Overlay Gradient for Hero Section */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.3), black);
+    z-index: 1;
+  }
+  
+  /* Hero Content */
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+  }
+  
+  .hero-title {
+    font-family: "Jost", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  .hero-subtitle {
+    font-family: "Cormorant Upright", serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    margin: 5px 0;
+  }
+  
+  .hero-button {
+    font-family: "Cormorant Upright", serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    text-decoration: none;
+    background: rgba(173, 5, 5, 1);
+    padding: 10px 20px;
+    border: 1px solid rgb(179, 13, 13);
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  
+  .hero-button:hover {
+    background: rgba(204, 226, 8, 0.8);
+    color: black;
+  }
+  
+  /* Hamburger Menu (Hidden by Default) */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20px;
+    cursor: pointer;
+  }
+  
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+  
+  /* Mobile Menu */
+  @media (max-width: 768px) {
+    .menu {
+      display: none; /* Hide the menu by default */
+      flex-direction: column;
+      position: absolute;
+      top: 70px; /* Below the header */
+      left: 0;
+      width: 100%;
+      background: black;
+      gap: 10px;
+      padding: 20px 0;
+      border-top: 1px solid red;
+      z-index: 100;
+    }
+  
+    .menu a {
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+    }
+  
+    .hamburger {
+      display: flex; /* Show the hamburger menu */
+    }
+  
+    .menu.show {
+      display: flex; /* Show menu when active */
+    }
+  
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Two Sections: Text on Left with Gradient and Image on Right */
+  .text-image-section {
+    display: flex;
+    flex-wrap: nowrap; /* Keeps content side by side */
+    align-items: center;
+    justify-content: space-between;
+    min-height: 500px; /* Adjust as needed */
+    position: relative;
+    background: black; /* Black background for the entire section */
+    padding-top: 100px;
+    
+  }
+  
+  /* Text Content on the Left */
+  .text-image-section .content {
+    flex: 0 0 40%; /* Text takes 40% of the width */
+    padding: 40px;
+    color: white;
+    position: relative;
+    background: linear-gradient(
+        to right, black 80%, transparent 100%
+      ), /* Smooth transition to the right */
+      linear-gradient(
+        to bottom, black 20%, transparent 100%
+      ); /* Smooth transition to the bottom */
+    z-index: 2;
+  }
+  
+  .text-image-section h2 {
+    font-family: "Jost", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+  
+  .text-image-section p {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  /* Image Section on the Right */
+  .text-image-section .image-section {
+    flex: 0 0 60%; /* Image takes 60% of the width */
+    min-height: 500px; /* Matches the height of the text section */
+    background: linear-gradient(
+        to left, transparent 0%, black 102%
+      ), /* Gradient from right to left */
+      linear-gradient(
+        to bottom, black 1%, transparent 20%
+      ), /* Smooth transition to the bottom */
+      url('https://thumbs.dreamstime.com/b/black-lamborghini-under-night-lights-sleek-sports-car-captured-glow-streetlights-its-headlights-illuminating-wet-342607657.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .text-image-section {
+      flex-wrap: wrap; /* Stack sections vertically */
+    }
+  
+    .text-image-section .content,
+    .text-image-section .image-section {
+      flex: 1 1 100%; /* Full width */
+      min-height: 300px; /* Adjust height as needed for smaller screens */
+    }
+  
+    .text-image-section .content {
+      text-align: center;
+      background: linear-gradient(to bottom, black 75%, transparent 100%);
+    }
+  
+    .text-image-section .image-section {
+      background-position: center;
+      background-size: cover;
+      background: linear-gradient(to top, black 20%, transparent 60%), 
+                  url('https://thumbs.dreamstime.com/b/black-lamborghini-under-night-lights-sleek-sports-car-captured-glow-streetlights-its-headlights-illuminating-wet-342607657.jpg') no-repeat center center;
+    }
+  }
+
+
+
+
+
+  
+
+  
+  
+  body {
+    font-family: "Jost", sans-serif;
+    color: white;
+  }
+  
+  /* Ceramic Coating Section */
+  .ceramic-coating-section {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+  }
+  
+  .container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    flex-wrap: wrap; /* Ensures responsiveness */
+  }
+  
+  /* Promotional Card */
+  .promo-card {
+    flex: 1;
+ 
+  }
+  
+  
+  /* Service Details */
+  .service-details {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  /* Service Item */
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    text-align: left;
+  }
+  
+  /* Image Styling */
+  .service-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+  
+  /* Text Styling */
+  .service-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .service-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  
+  .note {
+    grid-column: span 2; /* Make the note span both columns */
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .promo-card {
+      margin: 0 auto;
+    }
+    .service-details {
+        display: flex;
+        flex-direction: column; /* Stack all items vertically */
+        gap: 30px; /* Add spacing between each service item */
+        width: 75%;
+        margin: auto;
+      }
+      
+      /* Service Item */
+      .service-item {
+        display: flex;
+        flex-direction: column; /* Stack icon, header, and text vertically */
+        align-items: center; /* Center-align all content */
+        text-align: center; /* Center-align text */
+        gap: 10px; /* Add spacing between icon, header, and text */
+      }
+      
+      /* Image Styling */
+      .service-item img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+      }
+      
+      /* Text Styling */
+      .service-item h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      
+      .service-item p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0;
+      }
+      
+  
+    .call-now-btn {
+      width: 100%; /* Full-width button for smaller screens */
+    }
+  }
+  
+    
+
+
+
+  
+
+
+
+
+/* General Styles */
+body {
+    font-family: "Jost", sans-serif;
+  }
+  
+  /* Contact Section Styling */
+  .contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    background-color: black;
+    color: white;
+    margin-top: 90px;
+  }
+  
+  .container {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+    gap: 30px;
+  }
+  
+  /* Left Column Styling */
+  .left-column {
+    flex: 1;
+  }
+  
+  .small-heading {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .main-heading {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    color: #fff;
+  }
+  
+  .description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+  
+  .call-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .call-button:hover {
+    background-color: darkred;
+  }
+  
+  /* Right Column Styling */
+  .right-column {
+    flex: 1;
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .form-note {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+  
+  .form-note span {
+    color: red;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-row input,
+  .form-row select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #3b3b3b;
+    color: white;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .form-row input,
+  .form-row select {
+    flex: 1;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    display: none;
+  }
+  
+  input:invalid + .error-message {
+    display: block;
+  }
+  
+  /* Mobile Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack the columns vertically */
+      gap: 20px;
+    }
+  
+    .left-column,
+    .right-column {
+      flex: none;
+      width: 100%; /* Make each column full width */
+    }
+    .center-container {
+      display: flex; /* Use Flexbox */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      padding-bottom: 10px;
+    }
+    
+    .small-heading {
+      text-align: center;
+    }
+    .main-heading {
+      font-size: 28px; /* Reduce font size for smaller screens */
+      text-align: center;
+    }
+  
+    .description {
+      font-size: 14px; /* Adjust text size for better readability */
+      text-align: center;
+  
+    }
+  
+    .call-button {
+      width: 100%; /* Make the button span the full width */
+      text-align: center;
+    }
+  
+    .form-row {
+      flex-direction: column; /* Stack inputs vertically in smaller screens */
+      gap: 10px; /* Add spacing between stacked inputs */
+    }
+  
+    .form-group textarea {
+      height: 80px; /* Adjust the height of the message box */
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Footer Section */
+  .footer-section {
+    height: 50px; /* Fixed height for the footer */
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    display: flex; /* Create columns using Flexbox */
+    justify-content: space-between; /* Space out columns evenly */
+    align-items: center; /* Vertically center the content */
+    padding: 0 20px; /* Add horizontal padding */
+    font-family: "Jost", sans-serif;
+    margin-top: 40px;
+  }
+  
+  /* Columns */
+  .footer-column {
+    flex: 1; /* Each column takes equal space */
+  }
+  
+  .footer-column.start {
+    text-align: left; /* Align text to the left */
+  }
+  
+  .footer-column.center {
+    text-align: center; /* Align text to the center */
+  }
+  
+  .footer-column.end {
+    text-align: right; /* Align text to the right */
+  }
+  
+  /* Typography */
+  .footer-section h3 {
+    font-size: 10px;
+    font-weight: 400;
+    margin: 0;
+  }
+  
+  .footer-section p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
