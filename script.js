@@ -46,3 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   displayImages("package");
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector(".menu");
+
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("show"); // Toggle the "show" class to display the menu
+  });
+});

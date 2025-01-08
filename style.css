@@ -163,6 +163,59 @@ body, html {
   color: black;
 }
 
+/* Hamburger Menu (Hidden by Default) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .menu {
+    display: none; /* Hide the menu by default */
+    flex-direction: column;
+    position: absolute;
+    top: 70px; /* Below the header */
+    left: 0;
+    width: 100%;
+    background: black;
+    gap: 10px;
+    padding: 20px 0;
+    border-top: 1px solid red;
+    z-index: 100;
+  }
+
+  .menu a {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: flex; /* Show the hamburger menu */
+  }
+
+  .menu.show {
+    display: flex; /* Show menu when active */
+  }
+
+
+
+  
+
+
+
+
 
 
 
@@ -396,12 +449,13 @@ body, html {
 
   .image-box {
     flex: 1 1 100%; /* Full width for each image box */
+    padding-bottom: 20px;
   }
 
   .image-box img {
-    max-height: 150px; /* Reduce image height for smaller screens */
+    width: 60%; /* Ensure images take up full width */
+    height: auto; /* Maintain aspect ratio */
   }
-
   .image-box h3 {
     font-size: 18px;
   }
@@ -512,11 +566,218 @@ body, html {
     font-size: 18px;
   }
 
+  .menu-bar {
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: center; /* Center buttons when stacked */
+    gap: 10px; /* Add space between rows of buttons */
+  }
   .menu-option {
-    font-size: 14px;
-    padding: 8px 15px;
+    flex: 1 1 100%; /* Make each button full width */
+    border-left: none; /* Remove the left border */
+    border-top: 1px solid white; /* Add border between rows */
+  }
+  .menu-option:first-child {
+    border-top: none; /* Remove the top border for the first button */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* General Styles */
+body {
+  font-family: "Jost", sans-serif;
+}
+
+/* Contact Section Styling */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 20px;
+  background-color: black;
+  color: white;
+  margin-top: 90px;
+}
+
+.container {
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+  gap: 30px;
+}
+
+/* Left Column Styling */
+.left-column {
+  flex: 1;
+}
+
+.small-heading {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.main-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.call-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.call-button:hover {
+  background-color: darkred;
+}
+
+/* Right Column Styling */
+.right-column {
+  flex: 1;
+  background-color: #2e2e2e;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form-note {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.form-note span {
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea,
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #3b3b3b;
+  color: white;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-row input,
+.form-row select {
+  flex: 1;
+}
+
+textarea {
+  height: 100px;
+  resize: none;
+}
+
+.error-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 12px;
+  color: red;
+  margin-top: 5px;
+  display: none;
+}
+
+input:invalid + .error-message {
+  display: block;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack the columns vertically */
+    gap: 20px;
+  }
+
+  .left-column,
+  .right-column {
+    flex: none;
+    width: 100%; /* Make each column full width */
+  }
+  .center-container {
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding-bottom: 10px;
+  }
+  
+  .small-heading {
+    text-align: center;
+  }
+  .main-heading {
+    font-size: 28px; /* Reduce font size for smaller screens */
+    text-align: center;
+  }
+
+  .description {
+    font-size: 14px; /* Adjust text size for better readability */
+    text-align: center;
+
+  }
+
+  .call-button {
+    width: 100%; /* Make the button span the full width */
+    text-align: center;
+  }
+
+  .form-row {
+    flex-direction: column; /* Stack inputs vertically in smaller screens */
+    gap: 10px; /* Add spacing between stacked inputs */
+  }
+
+  .form-group textarea {
+    height: 80px; /* Adjust the height of the message box */
+  }
+}
+
+
+
+
+
+
+
+
 
 
 
